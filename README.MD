@@ -50,7 +50,20 @@ npm run build:my
 
 ## 小程序端
 
-### app.json
+1. leader(领读)
+    - authors(作者)
+    - stories(故事)
+
+2. stack(分类)
+    - booklist(图书列表)
+
+3. bookdesk(书桌)
+    - reader(阅读器)
+
+4. mine(我的)
+    - news(通知)
+
+5. app.json
 
 ```js
 "tabBar" : {
@@ -71,24 +84,10 @@ npm run build:my
 }
 ```
 
-1. leader(领读)
-    - authors(作者)
-    - stories(故事)
-
-2. stack(分类)
-    - booklist(图书列表)
-
-3. bookdesk(书桌)
-    - reader(阅读器)
-
-4. mine(我的)
-    - news(通知)
-
-
-
 
 ## 服务端
-    服务器使用 小程序 云开发
+服务器使用 小程序 云开发
+
 1. 数据库
 ```js
 // 数据库初始化
