@@ -45,39 +45,48 @@ npm run build:my
 
 ## 小程序端
 
-1. leader(领读)
-    - authors(作者)
-    - stories(故事)
+### pages
+    1. leader(领读)
+        - authors(作者)
+        - stories(故事)
 
-2. stack(分类)
-    - booklist(图书列表)
+    2. stack(分类)
+        - booklist(图书列表)
 
-3. bookdesk(书桌)
-    - reader(阅读器)
+    3. bookdesk(书桌)
+        - reader(阅读器)
 
-4. mine(我的)
-    - news(通知)
+    4. mine(我的)
+        - news(通知)
 
-5. app.json
+    5. app.json
 
-```js
-"tabBar" : {
-    "list" : [
-        {
-            "pagePath":"pages/leader/main",
-        },
-        {
-            "pagePath":"pages/stack/main"
-        },
-        {
-            "pagePath":"pages/bookdesk/main"
-        },
-        {
-            "pagePath":"pages/mine/main"
-        }
-    ]
-}
-```
+    ```js
+    "tabBar" : {
+        "list" : [
+            {
+                "pagePath":"pages/leader/main",
+            },
+            {
+                "pagePath":"pages/stack/main"
+            },
+            {
+                "pagePath":"pages/bookdesk/main"
+            },
+            {
+                "pagePath":"pages/mine/main"
+            }
+        ]
+    }
+    ```
+
+### 微信小程序 移动端适配 WXSS
+
+为了适应前端开发者 , WXSS 具有 CSS 大部分特性。 同时为了更适合开发微信小程序 , WXSS 对 CSS 进行了 扩充和修改
+- 尺寸单位
+
+#### 尺寸单位
+- rpx : 可以根据屏幕宽度进行自适应 。规定屏幕宽为  750rpx 
 
 
 ## 服务端
@@ -120,6 +129,18 @@ export function downloadFile(baseUrl, imgs, callback) {
 ```
 
 # 总结
+```html
 1. mpvue 最大的优点的 , 我觉得应该就是其跨平台开发的框架 , 一次编写 , 可以在 微信 , 支付宝等 平台使用 
+```
+
+```html
 2. mpvue 的缺点也是很明显的 , 就是没有很好的开发文档 , 出了什么不知名的错误都不知道 怎么处理 , 比如 在 mpvue 中 使用 epubjs 解析 , 就会出现 bug 。 导致我曾经 使用 vue 写的 web 移动端阅读器 无法迁移到 mpvue 中 , 项目没有全部完成。
-3. 写项目最关键是得有耐心 , 写这个项目 , 学习到了 小程序云开发的 基本过程。 但是 , 下面如果写 跨平台的小程序 , 应该会 使用 uni-app 其他框架了吧。 
+```
+
+```html
+ 3. 写项目最关键是得有耐心 , 写这个项目 , 学习到了 小程序云开发的 基本过程。 但是 , 下面如果写 跨平台的小程序 , 应该会 使用 uni-app 其他框架了吧。 
+```
+
+```html
+4. 话说 , 如果做 web 项目时 , 也可以使用 云技术就好了 , 比如像 severless 技术等 , 就不需要使用 后端 , 也能开发这个完整的 全栈项目
+```
