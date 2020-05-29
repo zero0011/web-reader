@@ -1,6 +1,6 @@
 # reader
 
-> 基于 mpvue 的 跨平台的小程序云开发 读书商城
+> 基于 mpvue 的 跨平台的小程序云开发 读书商城(仿网易蜗牛读书)
 
 # 打开项目
 
@@ -42,43 +42,61 @@ npm run build:my
 
 
 # 项目介绍
+这个一款 仿网易蜗牛读书的 云开发小程序
 
 ## 小程序端
 
-### pages
-    1. leader(领读)
-        - authors(作者)
-        - stories(故事)
+### leader(领读)
+1. stories(具体文章)
+2. authors(作者详细)
 
-    2. stack(分类)
-        - booklist(图书列表)
+**note:微信pages 获取页面路由跳转参数 this.$root.$mp.query,由此便可以获取**
 
-    3. bookdesk(书桌)
-        - reader(阅读器)
+### stack(分类)
+1. booklist(图书列表)
 
-    4. mine(我的)
-        - news(通知)
+### bookdesk(书桌)
+**书籍展示使用轮播图**
+```html
+    <swiper class="swiper"
+    indicator-dots="true" 
+    autoplay="true" 
+    interval="5000" 
+    duration="1000" 
+    @click="StartRead">
+        <swiper-item v-for="(book ,index) in books" :key="index">
+        </swiper-item>
+    </swiper>
+```
 
-    5. app.json
+1. reader(阅读器)
+使用 web-view 连接外部的 h5阅读器
+```html
+<web-view :src="reader-url"></web-view>
+```
 
-    ```js
-    "tabBar" : {
-        "list" : [
-            {
-                "pagePath":"pages/leader/main",
-            },
-            {
-                "pagePath":"pages/stack/main"
-            },
-            {
-                "pagePath":"pages/bookdesk/main"
-            },
-            {
-                "pagePath":"pages/mine/main"
-            }
-        ]
-    }
-    ```
+### mine(我的)
+1. news(消息通知)
+
+### app.json
+```js
+"tabBar" : {
+    "list" : [
+        {
+            "pagePath":"pages/leader/main",
+        },
+        {
+            "pagePath":"pages/stack/main"
+        },
+        {
+            "pagePath":"pages/bookdesk/main"
+        },
+        {
+            "pagePath":"pages/mine/main"
+        }
+    ]
+}
+```
 
 ### 微信小程序 移动端适配 WXSS
 
@@ -104,6 +122,9 @@ wx.cloud.init({
 // 数据库请求接口 , 写在 utils文件中 , 方便调用
 const db = wx.cloud.database();
 const request_interface = db.collection('test').doc('tableID');
+export default {
+    request_interface
+}
 ```
 
 
