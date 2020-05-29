@@ -143,21 +143,36 @@ downloadFile(baseUrl, imgs , (img , res) => {
 ### app.json
 ```js
 "tabBar" : {
-    "list" : [
-        {
-            "pagePath":"pages/leader/main",
-        },
-        {
-            "pagePath":"pages/stack/main"
-        },
-        {
-            "pagePath":"pages/bookdesk/main"
-        },
-        {
-            "pagePath":"pages/mine/main"
-        }
+    "color":"#999",
+    "selectedColor":"#444",
+    "borderStyle":"black",
+    "list":[
+      {
+        "pagePath":"pages/leader/main",
+        "iconPath":"/static/icons/lingdu.png",
+        "selectedIconPath":"/static/icons/lingdu_sel.png",
+        "text":"领读"
+      },
+      {
+        "pagePath":"pages/stack/main",
+        "iconPath":"/static/icons/stack.png",
+        "selectedIconPath":"/static/icons/stack_sel.png",
+        "text":"分类"
+      },
+      {
+        "pagePath":"pages/bookdesk/main",
+        "iconPath":"/static/icons/bookdesk.png",
+        "selectedIconPath":"/static/icons/bookdesk_sel.png",
+        "text":"书桌"
+      },
+      {
+        "pagePath":"pages/mine/main",
+        "iconPath":"/static/icons/mine.png",
+        "selectedIconPath":"/static/icons/mine_sel.png",
+        "text":"我的"
+      }
     ]
-}
+  }
 ```
 
 ### 微信小程序 移动端适配 WXSS
