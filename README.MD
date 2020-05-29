@@ -47,12 +47,64 @@ npm run build:my
 ## 小程序端
 
 ### leader(领读)
+
+```html
+<div class="page__bd" v-for="(author , index) in authors" :key="index">
+      <div class="page__bd-head" @click="GoToAuthors">
+        <div class="head-img">
+          <img class="pic" :src="author.headImg" />
+        </div>
+        <div class="artic-author page-flex">{{author.userName}}</div>
+      </div>
+      <div class="page__bd-banner center" @click="GoToStories(index)">
+        <img class="bannerImg" :src="author.bannerImg"/>
+      </div>
+      <div class="page__bd-middle" @click="GoToStories(index)">
+        <div class="artic-title">{{author.articTitle}}</div>
+        <div class="artic-content">{{author.articContent}}</div>
+      </div>
+      <div class="page__bd-foot">
+        <div class="foot-lt fl page-flex">{{author.clickTimes}}次点击</div>
+        <div class="foot-rt thumbUp">{{author.thumbUp}}
+           <div class="finger">
+             <img :src="pointer_url" />
+           </div>
+        </div>
+      </div>
+    </div>
+```
+
+```js
+// 路由跳转
+GoToAuthors() {
+    mpvue.navigateTo({
+    url: "/pages/leader/authors/main"
+    });
+},
+GoToStories(index) {
+    mpvue.navigateTo({
+    url: `/pages/leader/stories/main?id=${index}`
+    });
+}
+```
+
 1. stories(具体文章)
+```js
+// 获取路由跳转参数
+let query = this.$root.$mp.query;
+```
 2. authors(作者详细)
 
 **note:微信pages 获取页面路由跳转参数 this.$root.$mp.query,由此便可以获取**
 
 ### stack(分类)
+
+可滚动视图区域。 使用竖向滚动时,需要给scroll-view 一个固定高度,通过 wxss 设置 height。组件属性的长度单位默认为px , 2.4.0支持传入单位(rpx)
+
+```html
+<scroll-view v-for="(item , index) in stack" :key="index" scroll-y="true"></scroll-view>
+```
+
 1. booklist(图书列表)
 
 ### bookdesk(书桌)
@@ -77,6 +129,16 @@ npm run build:my
 
 ### mine(我的)
 1. news(消息通知)
+
+```js
+// 设置图片的url
+let baseUrl = 'cloud://zero0011-b6bed.7a65-zero0011-b6bed-1302196729/imgaes/mines/';
+let imgs = ['news','booklist','note','fans','times','update','sets']; // 图片名
+
+downloadFile(baseUrl, imgs , (img , res) => {
+    this.$data[img + 'Url'] = res.tempFilePath;
+})
+```
 
 ### app.json
 ```js
