@@ -76,7 +76,8 @@ export default {
       book1Url: "",
       book2Url: "",
       book3Url: "",
-      rgUrl: ""
+      rgUrl: "",
+      name: "",
     };
   },
   mounted() {
