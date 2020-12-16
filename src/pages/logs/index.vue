@@ -11,7 +11,8 @@ import util from "../../utils/index";
 export default {
   data() {
     return {
-      logs: []
+      logs: [],
+      nums: [],
     };
   },
   mounted() {
