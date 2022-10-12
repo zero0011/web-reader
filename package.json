@@ -23,7 +23,7 @@
     "build": "node build/build.js wx"
   },
   "dependencies": {
-    "epubjs": "^0.3.87",
+    "epubjs": "^0.3.93",
     "mpvue": "^2.0.0",
     "vuex": "^3.0.1"
   },
